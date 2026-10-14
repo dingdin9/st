@@ -2977,7 +2977,7 @@ if(!o._jmzqLoaded){
     const sec = o.document.getElementById("jmzq-mvu-section");
     if(sec&&!o.document.getElementById("jmzq-mvu-wl-add")){
       const anchor = o.document.getElementById("jmzq-mvu-optimize");
-      const html = '<div class="jmzq-mvu-collapse-header" id="jmzq-mvu-wl-toggle" style="font-size:13px;justify-content:center;"><span class="jmzq-mvu-collapse-arrow" id="jmzq-mvu-wl-arrow">▶</span><span>API 来源白名单</span></div><div class="jmzq-mvu-collapse-body" id="jmzq-mvu-wl-panel" style="display:none;"><div class="jmzq-mvu-row"><label class="jmzq-mvu-label wide">新增域名</label><input class="jmzq-mvu-input" id="jmzq-mvu-wl-input" placeholder="例如 api.example.com"><button class="jmzq-btn xs" id="jmzq-mvu-wl-add" style="flex-shrink:0;">加入白名单</button></div><div id="jmzq-mvu-wl-list" style="font-size:11px;color:#8a7060;margin-top:6px;line-height:1.8;overflow-wrap:anywhere;"></div></div>';
+      const html = '<div class="jmzq-mvu-collapse-header" id="jmzq-mvu-wl-toggle" style="font-size:13px;justify-content:center;"><span class="jmzq-mvu-collapse-arrow" id="jmzq-mvu-wl-arrow">▶</span><span>API 来源白名单</span></div><div class="jmzq-mvu-collapse-body" id="jmzq-mvu-wl-panel" style="display:none;"><div class="jmzq-mvu-row"><label class="jmzq-mvu-label wide">新增域名</label><input class="jmzq-mvu-input" id="jmzq-mvu-wl-input" placeholder="例如 api.example.com"><button class="jmzq-btn xs" id="jmzq-mvu-wl-add" style="flex-shrink:0;">加入白名单</button></div><div id="jmzq-mvu-wl-list" style="font-size:11px;color:#6a5040;margin-top:6px;line-height:1.8;overflow-wrap:anywhere;"></div></div>';
       anchor ? anchor.insertAdjacentHTML("afterend", html) : sec.insertAdjacentHTML("afterbegin", html);
       const input = o.document.getElementById("jmzq-mvu-wl-input"), add = o.document.getElementById("jmzq-mvu-wl-add"), listEl = o.document.getElementById("jmzq-mvu-wl-list"), wlToggle = o.document.getElementById("jmzq-mvu-wl-toggle"), wlArrow = o.document.getElementById("jmzq-mvu-wl-arrow"), wlPanel = o.document.getElementById("jmzq-mvu-wl-panel");
       wlToggle&&wlToggle.addEventListener("click", () => {
@@ -2995,7 +2995,7 @@ if(!o._jmzqLoaded){
         if(!d)return void We("请输入域名");
         const store = At();
         store.customWhitelist = Array.isArray(store.customWhitelist)?store.customWhitelist:[];
-        if(store.customWhitelist.indexOf(d)>=0)return void We("该域名已在白名单中");
+        if(store.customWhitelist.indexOf(d)>=0||Ge.indexOf(d)>=0)return void We("该域名已在白名单中");
         const wasBlack = Ye.indexOf(d)>=0;
         store.customWhitelist.push(d), applyWhitelistLists(), renderWhitelistList(), We(wasBlack?"已加入白名单，并从中转站黑名单移除: "+d:"已加入官方白名单: "+d);
         input&&(input.value = ""), en()
